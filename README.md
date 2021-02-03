@@ -1,4 +1,4 @@
-# consecutivos crud
+# consecutivos_crud
 
 API CRUD para la gestión de consecutivos definidos en diferentes contextos para las entidades de la universidad.
 
@@ -12,12 +12,12 @@ API CRUD para la gestión de consecutivos definidos en diferentes contextos para
 
 ### Variables de Entorno
 ```shell
-# parametros de api
+# parámetros de api
 CONSECUTIVOS_CRUD_HTTP_PORT=[Puerto de exposición del API]
 CONSECUTIVOS_CRUD_RUN_MODE=[Modo de ejecución del API]
-# paramametros de bd
+# parámetros de bd
 CONSECUTIVOS_CRUD_PGUSER=[Usuario de BD]
-CONSECUTIVOS_CRUD_PGPASS=[Contraseña del usaurio de BD]
+CONSECUTIVOS_CRUD_PGPASS=[Contraseña del usuario de BD]
 CONSECUTIVOS_CRUD_PGHOST=[URL, Dominio o EndPoint de la BD]
 CONSECUTIVOS_CRUD_PGPORT=[Puerto de la BD]
 CONSECUTIVOS_CRUD_PGDB=[Nombre de Base de Datos]
@@ -39,6 +39,12 @@ git pull origin develop && git checkout develop
 # 4. alimentar todas las variables de entorno que utiliza el proyecto.
 CONSECUTIVOS_CRUD_HTTP_PORT=8080 CONSECUTIVOS_CRUD_PGHOST=127.0.0.1:27017 CONSECUTIVOS_CRUD_SOME_VARIABLE=some_value bee run
 ```
+Nota: Si se desea consultar el último consecutivo registrado en la bd asociado a un contexto y año determinado, se muestra a continuación se muestra un ejmplo de la petición que se debería realizar al API para obtener dicho resultado.
+
+```shell
+curl -X GET "http://localhost:8080/v1/consecutivo/?query=contexto_id%3A1%2Cyear%3A2020&sortby=consecutivo&order=desc&limit=1" -H  "accept: application/json"
+```
+
 ### Ejecución Dockerfile
 ```shell
 # Implementado para despliegue del Sistema de integración continua CI.
@@ -76,7 +82,7 @@ Pruebas unitarias
 
 
 ## Estado CI
-| Develop | Relese 0.0.1 | Master |
+| Develop | Release 0.0.1 | Master |
 | -- | -- | -- |
 | [![Build Status](https://hubci.portaloas.udistrital.edu.co/api/badges/udistrital/consecutivos_crud/status.svg?ref=refs/heads/develop)](https://hubci.portaloas.udistrital.edu.co/udistrital/consecutivos_crud) | [![Build Status](https://hubci.portaloas.udistrital.edu.co/api/badges/udistrital/consecutivos_crud/status.svg?ref=refs/heads/release/0.0.1)](https://hubci.portaloas.udistrital.edu.co/udistrital/consecutivos_crud) | [![Build Status](https://hubci.portaloas.udistrital.edu.co/api/badges/udistrital/consecutivos_crud/status.svg)](https://hubci.portaloas.udistrital.edu.co/udistrital/consecutivos_crud) |
 
@@ -90,4 +96,3 @@ consecutivos_crud is free software: you can redistribute it and/or modify it und
 consecutivos_crud is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License along with consecutivos_crud. If not, see https://www.gnu.org/licenses/.
-
