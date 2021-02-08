@@ -37,7 +37,6 @@ COMMENT ON COLUMN consecutivos.consecutivo.fecha_modificacion IS 'Fecha de la ú
 COMMENT ON CONSTRAINT pk_consecutivo ON consecutivos.consecutivo  IS 'Llave primaria de la tabla consecutivo';
 -- ddl-end --
 
---SELECT consecutivo from consecutivos.consecutivo WHERE contexto_id = 1 and year = 2020 ORDER BY consecutivo desc LIMIT 1;
 
 
 -- Permisos de usuario
