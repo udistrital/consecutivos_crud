@@ -63,7 +63,7 @@ func (c *ConsecutivoController) Post() {
 func (c *ConsecutivoController) GetOne() {
 	idStr := c.Ctx.Input.Param(":id")
 	id, _ := strconv.Atoi(idStr)
-	v, err := models.GetVistaConsecutivoById(id)
+	v, err := models.GetConsecutivoById(id)
 	if err != nil {
 		logs.Error(err)
 		c.Data["mesaage"] = "Error service GetOne: The request contains an incorrect parameter or no record exists"
@@ -128,7 +128,7 @@ func (c *ConsecutivoController) GetAll() {
 		}
 	}
 
-	l, err := models.GetAllVistaConsecutivo(query, fields, sortby, order, offset, limit)
+	l, err := models.GetAllConsecutivo(query, fields, sortby, order, offset, limit)
 	if err != nil {
 		logs.Error(err)
 		c.Data["mesaage"] = "Error service GetAll: The request contains an incorrect parameter or no record exists"

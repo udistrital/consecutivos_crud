@@ -1,6 +1,3 @@
-CREATE SCHEMA consecutivos;
-
-set SEARCH_PATH to pg_catalog,public,consecutivos;
 
 
 CREATE TABLE consecutivos.consecutivo(
@@ -44,5 +41,3 @@ COMMENT ON CONSTRAINT pk_consecutivo ON consecutivos.consecutivo  IS 'Llave prim
 GRANT USAGE ON SCHEMA consecutivos TO desarrollooas;
 GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA consecutivos TO desarrollooas;
 GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA consecutivos TO desarrollooas;
-
- 
