@@ -137,6 +137,10 @@
                 "Activo": {
                     "type": "boolean"
                 },
+                "Consecutivo": {
+                    "type": "integer",
+                    "format": "int64"
+                },
                 "ContextoId": {
                     "type": "integer",
                     "format": "int64"

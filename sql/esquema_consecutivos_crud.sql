@@ -7,6 +7,7 @@ CREATE TABLE consecutivos.consecutivo(
     id  serial not null,
     contexto_id integer not null,
     year numeric(4,0) not null,
+    consecutivo integer not null,
     descripcion CHARACTER VARYING(250),
     activo boolean NOT NULL,
     fecha_creacion timestamp NOT NULL DEFAULT now(),
@@ -23,6 +24,8 @@ COMMENT ON COLUMN consecutivos.consecutivo.contexto_id IS 'Campo obligatorio que
 -- ddl-end --
 COMMENT ON COLUMN consecutivos.consecutivo.year IS 'Campo que indica el año para el cual es vigente el consecutivo.';
 -- ddl-end --
+COMMENT ON COLUMN consecutivos.consecutivo.consecutivo IS 'Campo que indica el el numero de consecutivo para un contexto y año especifico.';
+-- ddl-end --
 COMMENT ON COLUMN consecutivos.consecutivo.descripcion IS 'Descripción del consecutivo. Campo opcional que puede ser usado para concatenar el formato del consecutivo';
 -- ddl-end --
 COMMENT ON COLUMN consecutivos.consecutivo.activo IS 'Campo para indicar el estado del registro';
@@ -35,14 +38,6 @@ COMMENT ON CONSTRAINT pk_consecutivo ON consecutivos.consecutivo  IS 'Llave prim
 -- ddl-end --
 
 
-CREATE VIEW consecutivos.vista_consecutivo AS
-    SELECT id, contexto_id,year,  row_number() OVER (PARTITION BY contexto_id, year
-                                ORDER BY fecha_creacion) AS consecutivo,
-    descripcion, activo, fecha_creacion, fecha_modificacion                            
-FROM consecutivo;
-
-COMMENT ON VIEW consecutivos.vista_consecutivo is 'Vista que agrupa los registros por las tuplas contexto y year para generar sus respectivos consecutivos';
-COMMENT ON COLUMN consecutivos.vista_consecutivo.consecutivo is 'Campo que pertenece a la vista que genera el consecutivo para cada tupla de contexto y year';
 
 -- Permisos de usuario
 GRANT USAGE ON SCHEMA consecutivos TO desarrollooas;
