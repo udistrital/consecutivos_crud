@@ -11,6 +11,11 @@ main
 .vscode/
 .scannerwork/
 
+# Variables de Entorno
+*.env
+!*template.env
+!*develop.env
+
 # Swagger
 swagger/**
 !swagger/swagger.json
