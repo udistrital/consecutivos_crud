@@ -1,8 +1,17 @@
-lastupdate.tmp
-.vscode/
+# Binarios, compilados y temporales
+*.tmp
+*.log
+*.exe
+*.zip
+*~
 consecutivos_crud
 main
+
+# IDEs
+.vscode/
 .scannerwork/
+
+# Swagger
 swagger/**
 !swagger/swagger.json
 !swagger/swagger.yml
