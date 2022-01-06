@@ -5,13 +5,15 @@ API CRUD para la gestión de consecutivos definidos en diferentes contextos para
 ## Especificaciones Técnicas
 
 ### Tecnologías Implementadas y Versiones
-* [Golang](https://github.com/udistrital/introduccion_oas/blob/master/instalacion_de_herramientas/golang.md)
-* [BeeGo](https://github.com/udistrital/introduccion_oas/blob/master/instalacion_de_herramientas/beego.md)
-* [Docker](https://docs.docker.com/engine/install/ubuntu/)
-* [Docker Compose](https://docs.docker.com/compose/)
+
+- [Golang](https://github.com/udistrital/introduccion_oas/blob/master/instalacion_de_herramientas/golang.md)
+- [BeeGo](https://github.com/udistrital/introduccion_oas/blob/master/instalacion_de_herramientas/beego.md)
+- [Docker](https://docs.docker.com/engine/install/ubuntu/)
+- [Docker Compose](https://docs.docker.com/compose/)
 
 ### Variables de Entorno
-```shell
+
+```sh
 # parámetros de api
 CONSECUTIVOS_CRUD_HTTP_PORT=[Puerto de exposición del API]
 CONSECUTIVOS_CRUD_RUN_MODE=[Modo de ejecución del API]
@@ -23,10 +25,12 @@ CONSECUTIVOS_CRUD_PGPORT=[Puerto de la BD]
 CONSECUTIVOS_CRUD_PGDB=[Nombre de Base de Datos]
 CONSECUTIVOS_CRUD_PGSCHEMA=[Nombre del Esquema de Base de Datos]
 ```
-**NOTA:** Las variables se pueden ver en el fichero conf/app.conf y están identificadas con CONSECUTIVOS_CRUD_...
+
+**NOTA:** Las variables se pueden ver en el fichero conf/app.conf y están identificadas con `CONSECUTIVOS_CRUD_...`
 
 ### Ejecución del Proyecto
-```shell
+
+```sh
 #1. Obtener el repositorio con Go
 go get github.com/udistrital/consecutivos_crud
 
@@ -39,19 +43,22 @@ git pull origin develop && git checkout develop
 # 4. alimentar todas las variables de entorno que utiliza el proyecto.
 CONSECUTIVOS_CRUD_HTTP_PORT=8080 CONSECUTIVOS_CRUD_PGHOST=127.0.0.1:27017 CONSECUTIVOS_CRUD_SOME_VARIABLE=some_value bee run
 ```
+
 Nota: Si se desea consultar el último consecutivo registrado en la bd asociado a un contexto y año determinado, se muestra a continuación se muestra un ejmplo de la petición que se debería realizar al API para obtener dicho resultado.
 
-```shell
+```sh
 curl -X GET "http://localhost:8080/v1/consecutivo/?query=contexto_id%3A1%2Cyear%3A2020&sortby=consecutivo&order=desc&limit=1" -H  "accept: application/json"
 ```
 
 ### Ejecución Dockerfile
-```shell
+
+```sh
 # Implementado para despliegue del Sistema de integración continua CI.
 ```
 
 ### Ejecución docker-compose
-```shell
+
+```sh
 #1. Clonar el repositorio
 git clone -b develop https://github.com/udistrital/consecutivos_crud
 
@@ -72,20 +79,23 @@ docker ps
 ```
 
 ### Ejecución Pruebas
+
 Pruebas unitarias
-```shell
+
+```sh
 # En Proceso
 ```
 
 ## Modelo de Datos
-[Modelo de Datos consecutivos_crud](/sql/modelo_consecutivos_crud.png)
 
+[PGmodeler](/database/consecutivos.dbm) -
+[SVG](/database/consecutivos.svg)
 
 ## Estado CI
+
 | Develop | Release 0.0.1 | Master |
 | -- | -- | -- |
-| [![Build Status](https://hubci.portaloas.udistrital.edu.co/api/badges/udistrital/consecutivos_crud/status.svg?ref=refs/heads/develop)](https://hubci.portaloas.udistrital.edu.co/udistrital/consecutivos_crud) | [![Build Status](https://hubci.portaloas.udistrital.edu.co/api/badges/udistrital/consecutivos_crud/status.svg?ref=refs/heads/release/0.0.1)](https://hubci.portaloas.udistrital.edu.co/udistrital/consecutivos_crud) | [![Build Status](https://hubci.portaloas.udistrital.edu.co/api/badges/udistrital/consecutivos_crud/status.svg)](https://hubci.portaloas.udistrital.edu.co/udistrital/consecutivos_crud) |
-
+| [![Build Status](https://hubci.portaloas.udistrital.edu.co/api/badges/udistrital/consecutivos_crud/status.svg?ref=refs/heads/develop)](https://hubci.portaloas.udistrital.edu.co/udistrital/consecutivos_crud) | [![Build Status](https://hubci.portaloas.udistrital.edu.co/api/badges/udistrital/consecutivos_crud/status.svg?ref=refs/heads/release/0.0.1)](https://hubci.portaloas.udistrital.edu.co/udistrital/consecutivos_crud) | [![Build Status](https://hubci.portaloas.udistrital.edu.co/api/badges/udistrital/consecutivos_crud/status.svg?ref=refs/heads/master)](https://hubci.portaloas.udistrital.edu.co/udistrital/consecutivos_crud) |
 
 ## Licencia
 
