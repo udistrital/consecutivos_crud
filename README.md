@@ -88,7 +88,8 @@ Pruebas unitarias
 
 ## Modelo de Datos
 
-[Modelo de Datos consecutivos_crud](/sql/modelo_consecutivos_crud.png)
+[PGmodeler](/database/consecutivos.dbm) -
+[SVG](/database/consecutivos.svg)
 
 ## Estado CI
 
