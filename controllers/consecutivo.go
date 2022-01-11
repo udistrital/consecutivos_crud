@@ -134,10 +134,13 @@ func (c *ConsecutivoController) GetAll() {
 		c.Data["mesaage"] = "Error service GetAll: The request contains an incorrect parameter or no record exists"
 		c.Abort("404")
 	} else {
+		var data interface{}
 		if l == nil {
-			l = append(l, map[string]interface{}{})
+			data = []interface{}{}
+		} else {
+			data = l
 		}
-		c.Data["json"] = map[string]interface{}{"Success": true, "Status": "200", "Message": "Request successful", "Data": l}
+		c.Data["json"] = map[string]interface{}{"Success": true, "Status": "200", "Message": "Request successful", "Data": data}
 	}
 	c.ServeJSON()
 }
