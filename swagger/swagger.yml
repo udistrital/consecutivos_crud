@@ -46,7 +46,9 @@ paths:
         "200":
           description: ""
           schema:
-            $ref: '#/definitions/models.Consecutivo'
+            type: array
+            items:
+              $ref: '#/definitions/models.Consecutivo'
         "404":
           description: not found resource
     post:
