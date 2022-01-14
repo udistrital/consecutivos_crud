@@ -83,7 +83,7 @@ func (c *ConsecutivoController) GetOne() {
 // @Param	order	query	string	false	"Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ..."
 // @Param	limit	query	string	false	"Limit the size of result set. Must be an integer"
 // @Param	offset	query	string	false	"Start position of result set. Must be an integer"
-// @Success 200 {object} models.Consecutivo
+// @Success 200 {object} []models.Consecutivo
 // @Failure 404 not found resource
 // @router / [get]
 func (c *ConsecutivoController) GetAll() {
@@ -134,10 +134,13 @@ func (c *ConsecutivoController) GetAll() {
 		c.Data["mesaage"] = "Error service GetAll: The request contains an incorrect parameter or no record exists"
 		c.Abort("404")
 	} else {
+		var data interface{}
 		if l == nil {
-			l = append(l, map[string]interface{}{})
+			data = []interface{}{}
+		} else {
+			data = l
 		}
-		c.Data["json"] = map[string]interface{}{"Success": true, "Status": "200", "Message": "Request successful", "Data": l}
+		c.Data["json"] = map[string]interface{}{"Success": true, "Status": "200", "Message": "Request successful", "Data": data}
 	}
 	c.ServeJSON()
 }
