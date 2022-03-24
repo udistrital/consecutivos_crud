@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CAUTION: Do not modify this file unless you know what you are doing.
+         Unexpected results may occur if the code is changed deliberately.
+-->
+<dbmodel pgmodeler-ver="0.9.1-beta" last-position="0,0" last-zoom="1"
+	 default-schema="public" default-owner="postgres">
+<role name="test"
+      superuser="true"
+      createdb="true"
+      replication="true"
+      createrole="true"
+      inherit="true"
+      login="true"
+      encrypted="true"
+      password="********"
+      sql-disabled="true">
+</role>
+
+<role name="desarrollooas"
+      superuser="true"
+      createdb="true"
+      replication="true"
+      createrole="true"
+      inherit="true"
+      login="true"
+      encrypted="true"
+      password="********">
+</role>
+
+<database name="test" encoding="UTF8" lc-collate="en_US.utf8" lc-ctype="en_US.utf8">
+	<role name="test"/>
+	<tablespace name="pg_default"/>
+</database>
+
+<schema name="public" rect-visible="true" fill-color="#e1e1e1" sql-disabled="true">
+</schema>
+
+<schema name="consecutivos" rect-visible="true" fill-color="#de4429">
+	<role name="test"/>
+</schema>
+
+<sequence name="consecutivo_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="2147483647"
+	 cache="1" cycle="false">
+	<schema name="consecutivos"/>
+	<role name="test"/>
+</sequence>
+
+<table name="consecutivo">
+	<schema name="consecutivos"/>
+	<role name="test"/>
+	<comment><![CDATA[Tabla que almacena los consecutivos generados secuencialmente para cada contexto en un año especifico]]></comment>
+	<position x="60" y="60"/>
+	<column name="id" not-null="true" sequence="consecutivos.consecutivo_id_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Identificador del consecutivo]]></comment>
+	</column>
+	<column name="contexto_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Campo obligatorio que referencia el esquema parametros. Hace referencia al contexto o modelo de negocio al cual aplica el consecutivo]]></comment>
+	</column>
+	<column name="year" not-null="true">
+		<type name="numeric" length="4" precision="0"/>
+		<comment><![CDATA[Campo que indica el año para el cual es vigente el consecutivo.]]></comment>
+	</column>
+	<column name="consecutivo" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Campo que indica el el numero de consecutivo para un contexto y año especifico.]]></comment>
+	</column>
+	<column name="descripcion">
+		<type name="character varying" length="250"/>
+		<comment><![CDATA[Descripción del consecutivo. Campo opcional que puede ser usado para concatenar el formato del consecutivo]]></comment>
+	</column>
+	<column name="activo" not-null="true">
+		<type name="boolean" length="0"/>
+		<comment><![CDATA[Campo para indicar el estado del registro]]></comment>
+	</column>
+	<column name="fecha_creacion" not-null="true" default-value="now()">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha de creación del registro]]></comment>
+	</column>
+	<column name="fecha_modificacion" not-null="true" default-value="now()">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha de la última modificación del registro]]></comment>
+	</column>
+	<constraint name="pk_consecutivo" type="pk-constr" table="consecutivos.consecutivo">
+		<columns names="id" ref-type="src-columns"/>
+		<comment><![CDATA[Llave primaria de la tabla consecutivo]]></comment>
+	</constraint>
+</table>
+
+<permission>
+	<object name="consecutivos" type="schema"/>
+	<roles names="test"/>
+	<privileges create="true" usage="true"/>
+</permission>
+<permission>
+	<object name="consecutivos" type="schema"/>
+	<roles names="desarrollooas"/>
+	<privileges usage="true"/>
+</permission>
+<permission>
+	<object name="consecutivos.consecutivo" type="table"/>
+	<roles names="test"/>
+	<privileges select="true" delete="true" insert="true" update="true" truncate="true" references="true" trigger="true"/>
+</permission>
+<permission>
+	<object name="consecutivos.consecutivo" type="table"/>
+	<roles names="desarrollooas"/>
+	<privileges select="true" delete="true" insert="true" update="true"/>
+</permission>
+</dbmodel>

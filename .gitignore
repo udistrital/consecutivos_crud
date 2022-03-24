@@ -1,0 +1,22 @@
+# Binarios, compilados y temporales
+*.tmp
+*.log
+*.exe
+*.zip
+*~
+consecutivos_crud
+main
+
+# IDEs
+.vscode/
+.scannerwork/
+
+# Variables de Entorno
+*.env
+!*template.env
+!*develop.env
+
+# Swagger
+swagger/**
+!swagger/swagger.json
+!swagger/swagger.yml
