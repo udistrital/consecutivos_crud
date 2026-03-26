@@ -1,0 +1,90 @@
+controllers/consecutivo.go:23:4: c.Mapping undefined (type *ConsecutivoController has no field or method Mapping) (typecheck)
+	c.Mapping("Post", c.Post)
+	  ^
+controllers/consecutivo.go:24:4: c.Mapping undefined (type *ConsecutivoController has no field or method Mapping) (typecheck)
+	c.Mapping("GetOne", c.GetOne)
+	  ^
+controllers/consecutivo.go:25:4: c.Mapping undefined (type *ConsecutivoController has no field or method Mapping) (typecheck)
+	c.Mapping("GetAll", c.GetAll)
+	  ^
+controllers/consecutivo.go:37:29: c.Ctx undefined (type *ConsecutivoController has no field or method Ctx) (typecheck)
+	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
+	                           ^
+controllers/consecutivo.go:41:6: c.Ctx undefined (type *ConsecutivoController has no field or method Ctx) (typecheck)
+			c.Ctx.Output.SetStatus(201)
+			  ^
+controllers/consecutivo.go:42:6: c.Data undefined (type *ConsecutivoController has no field or method Data) (typecheck)
+			c.Data["json"] = map[string]interface{}{"Success": true, "Status": "201", "Message": "Registration successful", "Data": v}
+			  ^
+controllers/consecutivo.go:45:6: c.Data undefined (type *ConsecutivoController has no field or method Data) (typecheck)
+			c.Data["mesaage"] = "Error service POST: The request contains an incorrect data type or an invalid parameter"
+			  ^
+controllers/consecutivo.go:46:6: c.Abort undefined (type *ConsecutivoController has no field or method Abort) (typecheck)
+			c.Abort("400")
+			  ^
+controllers/consecutivo.go:50:5: c.Data undefined (type *ConsecutivoController has no field or method Data) (typecheck)
+		c.Data["mesaage"] = "Error service POST: The request contains an incorrect data type or an invalid parameter"
+		  ^
+controllers/consecutivo.go:51:5: c.Abort undefined (type *ConsecutivoController has no field or method Abort) (typecheck)
+		c.Abort("400")
+		  ^
+controllers/consecutivo.go:53:4: c.ServeJSON undefined (type *ConsecutivoController has no field or method ServeJSON) (typecheck)
+	c.ServeJSON()
+	  ^
+controllers/consecutivo.go:64:13: c.Ctx undefined (type *ConsecutivoController has no field or method Ctx) (typecheck)
+	idStr := c.Ctx.Input.Param(":id")
+	           ^
+controllers/consecutivo.go:70:5: c.Abort undefined (type *ConsecutivoController has no field or method Abort) (typecheck)
+		c.Abort("404")
+		  ^
+controllers/consecutivo.go:74:4: c.ServeJSON undefined (type *ConsecutivoController has no field or method ServeJSON) (typecheck)
+	c.ServeJSON()
+	  ^
+controllers/consecutivo.go:98:12: c.GetString undefined (type *ConsecutivoController has no field or method GetString) (typecheck)
+	if v := c.GetString("fields"); v != "" {
+	          ^
+controllers/consecutivo.go:102:17: c.GetInt64 undefined (type *ConsecutivoController has no field or method GetInt64) (typecheck)
+	if v, err := c.GetInt64("limit"); err == nil {
+	               ^
+controllers/consecutivo.go:106:17: c.GetInt64 undefined (type *ConsecutivoController has no field or method GetInt64) (typecheck)
+	if v, err := c.GetInt64("offset"); err == nil {
+	               ^
+controllers/consecutivo.go:110:12: c.GetString undefined (type *ConsecutivoController has no field or method GetString) (typecheck)
+	if v := c.GetString("sortby"); v != "" {
+	          ^
+controllers/consecutivo.go:114:12: c.GetString undefined (type *ConsecutivoController has no field or method GetString) (typecheck)
+	if v := c.GetString("order"); v != "" {
+	          ^
+controllers/consecutivo.go:123:7: c.ServeJSON undefined (type *ConsecutivoController has no field or method ServeJSON) (typecheck)
+				c.ServeJSON()
+				  ^
+routers/commentsRouter_controllers.go:5:2: "github.com/astaxie/beego/context/param" imported but not used (typecheck)
+	"github.com/astaxie/beego/context/param"
+	^
+database/migrations/20210203_084841_crear_esquema_consecutivos.go:19:4: m.Created undefined (type *CrearEsquemaConsecutivos_20210203_084841 has no field or method Created) (typecheck)
+	m.Created = "20210203_084841"
+	  ^
+database/migrations/20210203_084841_crear_esquema_consecutivos.go:38:5: m.SQL undefined (type *CrearEsquemaConsecutivos_20210203_084841 has no field or method SQL) (typecheck)
+		m.SQL(request)
+		  ^
+database/migrations/20210203_084841_crear_esquema_consecutivos.go:57:5: m.SQL undefined (type *CrearEsquemaConsecutivos_20210203_084841 has no field or method SQL) (typecheck)
+		m.SQL(request)
+		  ^
+database/migrations/20210208_122332_borrar_vista_y_tabla_consecutivo.go:19:4: m.Created undefined (type *BorrarVistaYTablaConsecutivo_20210208_122332 has no field or method Created) (typecheck)
+	m.Created = "20210208_122332"
+	  ^
+database/migrations/20210208_122332_borrar_vista_y_tabla_consecutivo.go:38:5: m.SQL undefined (type *BorrarVistaYTablaConsecutivo_20210208_122332 has no field or method SQL) (typecheck)
+		m.SQL(request)
+		  ^
+database/migrations/20210208_122332_borrar_vista_y_tabla_consecutivo.go:58:5: m.SQL undefined (type *BorrarVistaYTablaConsecutivo_20210208_122332 has no field or method SQL) (typecheck)
+		m.SQL(request)
+		  ^
+database/migrations/20210208_124005_crear_tabla_consecutivo.go:19:4: m.Created undefined (type *CrearTablaConsecutivo_20210208_124005 has no field or method Created) (typecheck)
+	m.Created = "20210208_124005"
+	  ^
+database/migrations/20210208_124005_crear_tabla_consecutivo.go:38:5: m.SQL undefined (type *CrearTablaConsecutivo_20210208_124005 has no field or method SQL) (typecheck)
+		m.SQL(request)
+		  ^
+database/migrations/20210208_124005_crear_tabla_consecutivo.go:58:5: m.SQL undefined (type *CrearTablaConsecutivo_20210208_124005 has no field or method SQL) (typecheck)
+		m.SQL(request)
+		  ^
